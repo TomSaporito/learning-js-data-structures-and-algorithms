@@ -1,4 +1,23 @@
 (function(){
+    var temp = `
+    <h3>
+        Linked Lists
+    </h3>
+    <button id="ll-btn" type="button">
+        Run Linked Lists
+    </button>
+    `;
+
+
+    appendHTML($('#linked-lists'), temp, '#ll-btn', runLists)
+
+
+})();
+
+
+
+
+let LinkedList = (function(){
 
 
 // Add your code here
@@ -95,34 +114,24 @@ class LinkedList {
     
 }
 
-var t = new LinkedList();
-
-t.append('tom');
-t.append('maureen');
-t.append('dog');
-console.log(t);
-
-t.removeAt(1);
-
-console.log(t);
-
-
-
-
-
-
-
-
-
-
-
-    function appendHTML(){
-        $('#linked-lists').append(`
-        <h2>
-            Linked Lists
-        </h2>
-        `);
-    }
-    appendHTML();
+    return LinkedList;
 
 })();
+
+function runLists(){
+    console.warn('START OF LINKED LISTS')
+    var t = new LinkedList();
+
+    t.append('tom');
+    t.append('maureen');
+    t.append('dog');
+    console.log(t);
+
+    t.removeAt(1);
+
+    console.log(t);
+
+    console.warn('END OF LINKED LISTS ^^^^^^');
+
+}
+

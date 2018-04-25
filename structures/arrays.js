@@ -2,9 +2,9 @@
 (function(){
     function appendHTML(){
         $('#arrays').append(`
-        <h2>
+        <h3>
             Arrays
-        </h2>
+        </h3>
     
         `);
     }
