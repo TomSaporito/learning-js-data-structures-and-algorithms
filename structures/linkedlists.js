@@ -36,6 +36,10 @@ class LinkedList {
         this.length = 0;
         this.head = null;
     }
+
+    getHead(){
+        return this.head;
+    }
     
     append(el){
         let node = new Node(el),
@@ -135,11 +139,11 @@ class LinkedList {
     }
     
     isEmpty(){
-        
+     return this.length === 0;   
     }
     
     size(){
-        
+        return this.length;
     }
     
     toString(){
@@ -186,6 +190,8 @@ function runLists(){
     t.remove('tail');
     console.log(t);
 
+    console.log(`t is empty?  ${t.isEmpty()}.  The size of it is ${t.size()}`);
+    console.log(`the Head element is ${t.getHead().element}`);
     console.warn('END OF LINKED LISTS ^^^^^^');
 
 }
