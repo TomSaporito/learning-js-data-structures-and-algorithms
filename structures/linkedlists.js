@@ -105,7 +105,7 @@ class LinkedList {
                 previous.next = current.next;
             }
             
-            length--;
+            this.length--;
             
             return current.element;
         } else {
@@ -114,12 +114,24 @@ class LinkedList {
         
     }
 
-    remove(){
-        
+    remove(el){
+        let index = this.indexOf(el);
+        return this.removeAt(index);
     }
     
-    indexOf(){
+    indexOf(elSearch){
+        let current = this.head,
+        index = 0;
         
+        while(current) {
+            if(elSearch === current.element){
+                return index;
+            }
+            index++;
+            current = current.next;
+        }
+
+        return -1;
     }
     
     isEmpty(){
@@ -131,12 +143,21 @@ class LinkedList {
     }
     
     toString(){
-        
+     let current = this.head,
+     string = '';
+     
+     while (current){
+         string += current.element + (current.next ? '\n' : '');
+         current = current.next;
+     }
+
+     return string;
+
     }
     
-    print(){
+    // print(){
         
-    }
+    // }
     
 }
 
@@ -151,10 +172,18 @@ function runLists(){
     t.append('tom');
     t.append('maureen');
     t.append('dog');
+    t.append('mouse');
+    t.append('tail');
+    t.append('story');
     console.log(t);
 
     t.removeAt(1);
 
+    console.log(t);
+    console.log(t.toString());
+    console.log(t.indexOf('tail'));
+    console.log(t.indexOf('maureen'));
+    t.remove('tail');
     console.log(t);
 
     console.warn('END OF LINKED LISTS ^^^^^^');
