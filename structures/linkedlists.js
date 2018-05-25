@@ -9,7 +9,7 @@
     `;
 
 
-    appendHTML($('#linked-lists'), temp, '#ll-btn', runLists)
+    appendHTML($('#linked-lists'), temp, '#ll-btn', runLists);
 
 
 })();
@@ -168,6 +168,32 @@ class LinkedList {
     return LinkedList;
 
 })();
+
+
+class DoubleNode{
+    constructor(element){
+        this.element = element;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+class DoublyLinkedList{
+    constructor(){
+        this.length = 0;
+        this.head = null;
+        this.tail = null;
+    }
+
+    
+
+
+}
+
+
+
+
+
 
 function runLists(){
     console.warn('START OF LINKED LISTS')
