@@ -9,7 +9,7 @@
     `;
 
 
-    appendHTML($('#linked-lists'), temp, '#ll-btn', runLists)
+    appendHTML($('#linked-lists'), temp, '#ll-btn', runLists);
 
 
 })();
@@ -35,6 +35,10 @@ class LinkedList {
         
         this.length = 0;
         this.head = null;
+    }
+
+    getHead(){
+        return this.head;
     }
     
     append(el){
@@ -113,6 +117,7 @@ class LinkedList {
         
     }
 
+
     remove(element){
         let index = this.indexOf(element);
         return this.removeAt(index);
@@ -129,9 +134,9 @@ class LinkedList {
             index++;
             current = current.next;
         }
-
         return -1;
     }
+
     
     isEmpty(){
         return this.length === 0;
@@ -146,15 +151,11 @@ class LinkedList {
         string = '';
 
         while (current) {
-            string += current.element + (current.next? 'n' : '');
+            string += current.element + (current.next? '\n' : '');
             current = current.next;
         }
 
         return string;
-    }
-    
-    getHead(){
-        return this.head;
     }
     
 }
@@ -163,6 +164,32 @@ class LinkedList {
 
 })();
 
+
+class DoubleNode{
+    constructor(element){
+        this.element = element;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+class DoublyLinkedList{
+    constructor(){
+        this.length = 0;
+        this.head = null;
+        this.tail = null;
+    }
+
+    
+
+
+}
+
+
+
+
+
+
 function runLists(){
     console.warn('START OF LINKED LISTS')
     var t = new LinkedList();
@@ -170,6 +197,9 @@ function runLists(){
     t.append('tom');
     t.append('maureen');
     t.append('dog');
+    t.append('mouse');
+    t.append('tail');
+    t.append('story');
     console.log(t);
 
     t.removeAt(1);
@@ -183,7 +213,14 @@ function runLists(){
     console.log(t.isEmpty());
 
     console.log(t);
+    console.log(t.toString());
+    console.log(t.indexOf('tail'));
+    console.log(t.indexOf('maureen'));
+    t.remove('tail');
+    console.log(t);
 
+    console.log(`t is empty?  ${t.isEmpty()}.  The size of it is ${t.size()}`);
+    console.log(`the Head element is ${t.getHead().element}`);
     console.warn('END OF LINKED LISTS ^^^^^^');
 
 }
