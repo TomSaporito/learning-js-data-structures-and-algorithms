@@ -74,7 +74,6 @@ class LinkedList {
                     previous = current;
                     current = current.next;
                 }
-
                 node.next = current;
                 previous.next = node;
             }
@@ -105,7 +104,7 @@ class LinkedList {
                 previous.next = current.next;
             }
             
-            length--;
+            this.length--;
             
             return current.element;
         } else {
@@ -114,28 +113,48 @@ class LinkedList {
         
     }
 
-    remove(){
-        
+    remove(element){
+        let index = this.indexOf(element);
+        return this.removeAt(index);
     }
     
-    indexOf(){
-        
+    indexOf(element){
+        let current = this.head,
+        index = 0;
+
+        while(current) {
+            if (element === current.element){
+                return index;
+            }
+            index++;
+            current = current.next;
+        }
+
+        return -1;
     }
     
     isEmpty(){
-        
+        return this.length === 0;
     }
     
     size(){
-        
+        return this.length;
     }
     
     toString(){
-        
+        let current = this.head,
+        string = '';
+
+        while (current) {
+            string += current.element + (current.next? 'n' : '');
+            current = current.next;
+        }
+
+        return string;
     }
     
-    print(){
-        
+    getHead(){
+        return this.head;
     }
     
 }
@@ -154,6 +173,14 @@ function runLists(){
     console.log(t);
 
     t.removeAt(1);
+    t.insert(1, 'tomato');
+    t.insert(1, 'masssss');
+    t.append('olosd');
+    t.remove('tomato');
+    console.log(t.toString());
+    console.log(t.getHead());
+    console.log(t.size());
+    console.log(t.isEmpty());
 
     console.log(t);
 
